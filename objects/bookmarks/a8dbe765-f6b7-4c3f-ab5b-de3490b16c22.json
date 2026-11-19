@@ -1,0 +1,79 @@
+{
+  "qInfo": {
+    "qId": "a8dbe765-f6b7-4c3f-ab5b-de3490b16c22",
+    "qType": "bookmark"
+  },
+  "qMetaDef": {
+    "title": "check",
+    "description": "",
+    "isExtended": false
+  },
+  "creationDate": "2026-11-09T17:04:18.222Z",
+  "sheetId": "PpqmAB",
+  "selectionFields": "business_notice_id, final_status",
+  "qBookMark": {
+    "qStateData": [
+      {
+        "qStateName": "$",
+        "qFieldItems": [
+          {
+            "qDef": {
+              "qName": "business_notice_id",
+              "qType": "PRESENT"
+            },
+            "qSelectInfo": {
+              "qRangeLo": "NaN",
+              "qRangeHi": "NaN",
+              "qNumberFormat": {
+                "qType": "U",
+                "qnDec": 10,
+                "qUseThou": 0
+              },
+              "qRangeInfo": [],
+              "qContinuousRangeInfo": []
+            },
+            "qValues": [
+              {
+                "qText": "2a721740-85f6-4956-8a05-aad752676592-01",
+                "qNumber": "NaN"
+              }
+            ],
+            "qExcludedValues": [],
+            "qValuesCount": 1,
+            "qExcludedValuesCount": 0
+          },
+          {
+            "qDef": {
+              "qName": "final_status",
+              "qType": "PRESENT"
+            },
+            "qSelectInfo": {
+              "qRangeLo": "NaN",
+              "qRangeHi": "NaN",
+              "qNumberFormat": {
+                "qType": "U",
+                "qnDec": 10,
+                "qUseThou": 0
+              },
+              "qRangeInfo": [],
+              "qContinuousRangeInfo": []
+            },
+            "qValues": [
+              {
+                "qText": "OVERDUE",
+                "qNumber": "NaN"
+              }
+            ],
+            "qExcludedValues": [],
+            "qValuesCount": 1,
+            "qExcludedValuesCount": 0
+          }
+        ]
+      }
+    ],
+    "qVariableItems": [],
+    "qPatches": [],
+    "qCyclicGroupStates": [],
+    "qGroupStates": []
+  }
+}

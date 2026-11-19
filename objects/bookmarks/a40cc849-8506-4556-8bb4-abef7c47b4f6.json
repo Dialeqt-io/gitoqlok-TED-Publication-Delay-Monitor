@@ -1,0 +1,53 @@
+{
+  "qInfo": {
+    "qId": "a40cc849-8506-4556-8bb4-abef7c47b4f6",
+    "qType": "bookmark"
+  },
+  "qMetaDef": {
+    "title": "Export Restart",
+    "description": "",
+    "isExtended": false
+  },
+  "creationDate": "2026-11-11T14:59:19.831Z",
+  "sheetId": "PpqmAB",
+  "selectionFields": "restart_auto_flag",
+  "qBookMark": {
+    "qStateData": [
+      {
+        "qStateName": "$",
+        "qFieldItems": [
+          {
+            "qDef": {
+              "qName": "late_inclusion_flag",
+              "qType": "PRESENT"
+            },
+            "qSelectInfo": {
+              "qRangeLo": "NaN",
+              "qRangeHi": "NaN",
+              "qNumberFormat": {
+                "qType": "U",
+                "qnDec": 10,
+                "qUseThou": 0
+              },
+              "qRangeInfo": [],
+              "qContinuousRangeInfo": []
+            },
+            "qValues": [
+              {
+                "qIsNumeric": true,
+                "qNumber": 1
+              }
+            ],
+            "qExcludedValues": [],
+            "qValuesCount": 1,
+            "qExcludedValuesCount": 0
+          }
+        ]
+      }
+    ],
+    "qVariableItems": [],
+    "qPatches": [],
+    "qCyclicGroupStates": [],
+    "qGroupStates": []
+  }
+}
