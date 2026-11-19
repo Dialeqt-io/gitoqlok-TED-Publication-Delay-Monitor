@@ -1,0 +1,27 @@
+{
+  "qInfo": {
+    "qId": "ZGVYFf",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "publication_number_TM22"
+    ],
+    "qFieldLabels": [
+      "Publication No."
+    ],
+    "qLabelExpression": "='Publication No.'",
+    "qAlias": "Publication No.",
+    "title": "Publication No.",
+    "coloring": {
+      "changeHash": "0.03917834634451034",
+      "hasValueColors": false
+    }
+  },
+  "qMetaDef": {
+    "title": "Publication No.",
+    "description": "",
+    "tags": []
+  }
+}

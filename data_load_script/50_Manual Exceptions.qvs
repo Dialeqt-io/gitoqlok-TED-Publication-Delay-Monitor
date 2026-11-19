@@ -1,0 +1,461 @@
+///$tab 50_Manual Exceptions
+// ---------------------------------------------------------------------
+// Exceptions manuelles  au cas par cas des overdue et des faux negatifs
+// Elles ne modifient JAMAIS la mesure du délai :
+//   Corrections = yes -> statut final 'IN TIME (CORRECTED)'
+//   Corrections = no  -> statut final 'OVERDUE - JUSTIFIED'
+//
+// => Cible : déplacer cette liste dans un fichier Excel/QVD maintenu par le métier
+// ---------------------------------------------------------------------
+
+ManualFixes:
+LOAD
+    business_notice_id_TM22 as business_notice_id,
+    explanations,
+    Corrections
+INLINE
+[
+business_notice_id_TM22;explanations;Corrections
+c121a1d3-4f34-4ac6-9586-b168affaa341-01;wrong usage by the user of the future publication date ( before main publication) and publication time should be 0;yes
+5a3dd2e8-74eb-447b-ab3b-fd74b5c51023-01;Bug 01-2025 and notice blocked during lawfulness check;no
+87b469c9-1643-442e-a414-1ab6522af750-01;Bug 01-2025 and notice blocked during lawfulness check;no
+2f8aa80f-66e3-4872-9781-95e81a8b26a5-01;The not immediately published data was not available before and publication time should be 0;yes
+3bb54504-433a-491d-b546-90a2f9db82dd-01;The not immediately published data was not available before and publication time should be 0;yes
+3e77e5f5-0c3d-4386-ad42-7dadecb47d8d-01;The not immediately published data was not available before and publication time should be 0;yes
+5f8e4df0-dcea-46f9-8aba-d87abe82d054-01;The not immediately published data was not available before and publication time should be 0;yes
+8a3f6d5f-2d9c-4c04-9b0d-bfa061565550-01;The not immediately published data was not available before and publication time should be 0;yes
+8fe6b761-9d66-404c-9830-e784bbc5864d-01;The not immediately published data was not available before and publication time should be 0;yes
+22d197ec-d51f-4d29-b4cd-2caa8fe70266-01;The not immediately published data was not available before and publication time should be 0;yes
+53cd24db-65d4-4f26-ae2f-6b0c8383b92c-01;The not immediately published data was not available before and publication time should be 0;yes
+58b07cdb-888c-424c-ac7b-2bc04aa5e6f2-01;The not immediately published data was not available before and publication time should be 0;yes
+65f3f033-c37e-415a-8707-af9fe2cecba9-01;The not immediately published data was not available before and publication time should be 0;yes
+74dbd7bd-b3b0-43bd-a99b-e86f92545fb9-01;The not immediately published data was not available before and publication time should be 0;yes
+94b1d0d3-3369-410c-98ab-b7cd32f7f775-01;The not immediately published data was not available before and publication time should be 0;yes
+148c7d01-ba0b-4df2-a4e6-3d5876ee1b81-01;The not immediately published data was not available before and publication time should be 0;yes
+205a4367-c71d-4043-8160-7d6e94ae0b5a-01;The not immediately published data was not available before and publication time should be 0;yes
+2852b235-a189-4676-9cdd-2aa1d0522f27-01;The not immediately published data was not available before and publication time should be 0;yes
+51794c33-bd01-4cee-a0b5-bed111ce1999-01;The not immediately published data was not available before and publication time should be 0;yes
+81441d15-0f73-45ed-8b96-816d10adc1e0-01;The not immediately published data was not available before and publication time should be 0;yes
+6144612e-c158-408c-8513-bbf07768c85c-01;The not immediately published data was not available before and publication time should be 0;yes
+6144612e-c158-408c-8513-bbf07768c85c-01;The not immediately published data was not available before and publication time should be 0;yes
+a2e0b4b1-10e9-46a7-916e-0cc37be4b4ad-01;The not immediately published data was not available before and publication time should be 0;yes
+b97a1dfb-879f-45ff-9172-1023f6da1d16-01;The not immediately published data was not available before and publication time should be 0;yes
+bc9371fa-cf87-4803-a235-538e23ee8c44-01;The not immediately published data was not available before and publication time should be 0;yes
+c3b2b35d-9276-4640-acee-9056123476c0-01;The not immediately published data was not available before and publication time should be 0;yes
+c3229d6e-40d5-4117-b066-514aeb52976c-01;The not immediately published data was not available before and publication time should be 0;yes
+cc2e16d7-72cb-4507-93c2-fe5d802bc8e3-01;The not immediately published data was not available before and publication time should be 0;yes
+cee8f5ac-a68e-4760-88da-f9a638719371-01;The not immediately published data was not available before and publication time should be 0;yes
+d5a585b9-41fd-422c-ac5d-a48f9023ed52-01;The not immediately published data was not available before and publication time should be 0;yes
+eb7c466f-30b9-402c-96ba-8f3467b58c89-01;The not immediately published data was not available before and publication time should be 0;yes
+aca1cbd5-0d4d-4b8e-a864-48b4d529e4d8-01;an unexpected character at the start of the word finančného in the notice ;no
+62cade69-2931-4500-9680-a0ee0f69c0a7-01;an unexpected character at the start of the word finančného in the notice ;no
+0b49fdc7-7483-4054-ac78-7d276d367d86-01;due to permamnence during christmas period and calendar constraints;no
+0e31c98c-8041-4472-b99b-97dc1d92fc24-01;due to permamnence during christmas period and calendar constraints;no
+1cd0480b-3498-4b54-a300-2707719c4f6d-01;due to permamnence during christmas period and calendar constraints;no
+1dbf94a6-bd6e-4b4e-962a-12f87c795a92-01;due to permamnence during christmas period and calendar constraints;no
+6e981ee0-a3a7-4cdc-823e-a1ec8915cf47-01;MICA due to permamnence during christmas period and calendar constraints;no
+2ab05114-ced0-465c-ae1a-e85079ce4f4d-01;due to permamnence during christmas period and calendar constraints;no
+2b87f3e3-39e3-4992-a671-69a92984036a-01;due to permamnence during christmas period and calendar constraints;no
+2d64c8a1-699b-4624-80b7-585a56c2b11b-01;due to permamnence during christmas period and calendar constraints;no
+02e40d92-640d-49fe-b03c-232923780b72-01;due to permamnence during christmas period and calendar constraints;no
+2e8075d6-85d5-4a27-886d-663b1a1123fa-01;due to permamnence during christmas period and calendar constraints;no
+2fefdaef-80a6-4ed7-91b5-174dd1d91226-01;due to permamnence during christmas period and calendar constraints;no
+3b2d649a-286f-4156-94b8-5a6a4da02e6b-01;due to permamnence during christmas period and calendar constraints;no
+3b162c63-a917-42b7-a1bb-8638b5b7df70-01;due to permamnence during christmas period and calendar constraints;no
+3ba3c511-32b9-4799-9e75-1bd94aa341fb-01;due to permamnence during christmas period and calendar constraints;no
+3cf49461-09ce-4586-a719-44c0cf5d01ee-01;due to permamnence during christmas period and calendar constraints;no
+3eed4da5-fc64-4e94-8dde-db2128d9fe6c-01;due to permamnence during christmas period and calendar constraints;no
+3fa0e8dc-7fee-4567-b902-d1e206341d63-01;due to permamnence during christmas period and calendar constraints;no
+3faf88e2-b330-4ea2-8b8b-5b5a5540edfa-01;due to permamnence during christmas period and calendar constraints;no
+4b5dd506-d862-4c61-84cf-a153b12eb44f-01;due to permamnence during christmas period and calendar constraints;no
+4bd180d7-3d8e-4598-a4fa-0041b8cf0e47-01;due to permamnence during christmas period and calendar constraints;no
+4d1a833a-55b9-4dab-a449-c7860cfc40a6-01;due to permamnence during christmas period and calendar constraints;no
+4ef2244d-ca80-4a60-85a4-38932a51a03f-01;due to permamnence during christmas period and calendar constraints;no
+4fd7c704-c475-43e4-8dd1-ca9608f4ae41-01;due to permamnence during christmas period and calendar constraints;no
+5b9ce759-b688-4102-8529-15b3e84a842d-01;due to permamnence during christmas period and calendar constraints;no
+5e217c1f-f217-4324-8a5f-6d7312908803-01;due to permamnence during christmas period and calendar constraints;no
+5ef813ea-637b-400a-a09a-ba48dab1b55a-01;due to permamnence during christmas period and calendar constraints;no
+6c8cbc5c-9019-4d53-8f1c-4474d0e21508-01;due to permamnence during christmas period and calendar constraints;no
+6cdb1279-c710-470a-b936-1ac037e83943-01;due to permamnence during christmas period and calendar constraints;no
+6f812136-f3f6-4a67-8466-5ee91a75e043-01;due to permamnence during christmas period and calendar constraints;no
+7a54bc00-948c-4bf6-a606-6d949c2c4938-01;due to permamnence during christmas period and calendar constraints;no
+7cf511a9-5861-484d-be64-be4d1f4a5447-01;due to permamnence during christmas period and calendar constraints;no
+7e7891f2-2e88-433d-b876-5d0ea109d099-01;due to permamnence during christmas period and calendar constraints;no
+8bcb4cb3-9510-4b4d-a884-f45805fe9b89-01;due to permamnence during christmas period and calendar constraints;no
+8d3e2642-b09d-4669-9f67-e8ca234d0d5f-01;due to permamnence during christmas period and calendar constraints;no
+8e762296-9998-479e-85cc-583a3004ab13-01;due to permamnence during christmas period and calendar constraints;no
+8f38610b-af59-46a2-8d83-9c6c95fa066a-01;due to permamnence during christmas period and calendar constraints;no
+9b4bdaf8-0517-4795-9321-e115f52d9981-03;due to permamnence during christmas period and calendar constraints;no
+9c308a10-38d3-4d9b-a051-e9cbede48c21-01;due to permamnence during christmas period and calendar constraints;no
+9e5b95ab-478e-45b1-ab97-a75480177709-01;due to permamnence during christmas period and calendar constraints;no
+9e83de13-f258-4ec5-9436-0bf49412a6a7-01;due to permamnence during christmas period and calendar constraints;no
+9ebebc0e-72ac-4a37-a127-32126b9ae824-01;due to permamnence during christmas period and calendar constraints;no
+9efbf039-2120-426e-88df-fe596871acfe-01;due to permamnence during christmas period and calendar constraints;no
+9f6b5960-b7c0-4a98-a539-876839f928d1-01;due to permamnence during christmas period and calendar constraints;no
+9f49b61b-6a6c-4912-92d7-0fbe83bc49ba-01;due to permamnence during christmas period and calendar constraints;no
+10fe1f46-20d5-4811-baa2-f5c4317f72be-01;due to permamnence during christmas period and calendar constraints;no
+14be13e8-1d3d-4bcf-8713-38ceeb3e757b-01;due to permamnence during christmas period and calendar constraints;no
+16dcc185-4546-4b94-af87-24f2f0cdd342-01;due to permamnence during christmas period and calendar constraints;no
+19a3565b-c902-4a3d-902e-495ee84149b1-01;due to permamnence during christmas period and calendar constraints;no
+23c29bab-9f3f-451f-9616-6aa499bba113-01;due to permamnence during christmas period and calendar constraints;no
+31cf28fb-01d4-486f-8d78-e31040233422-01;due to permamnence during christmas period and calendar constraints;no
+033b6a12-fd42-4676-ac66-8b1a4e543221-01;due to permamnence during christmas period and calendar constraints;no
+36dcb7f5-3770-40dc-ac5d-56e683516c0e-01;due to permamnence during christmas period and calendar constraints;no
+37c16cfc-a006-48a2-aa8b-afdea8da87ba-01;due to permamnence during christmas period and calendar constraints;no
+39cf71fc-b849-419b-b648-57f48d0f535a-01;due to permamnence during christmas period and calendar constraints;no
+40b08a80-85b6-4c4b-ad55-1935a00adab3-01;due to permamnence during christmas period and calendar constraints;no
+40e3ded0-096f-4a26-9ca8-c4ae87c7650e-01;due to permamnence during christmas period and calendar constraints;no
+042ed998-7b10-47a8-8cee-7b98a4d72583-01;due to permamnence during christmas period and calendar constraints;no
+45cc44ab-84ec-4a5b-a32d-9ac4e0f0ff5c-01;due to permamnence during christmas period and calendar constraints;no
+51ae1286-22c1-4dbb-8f72-f2bed895068e-01;due to permamnence during christmas period and calendar constraints;no
+53b7d4ef-61de-4644-b511-3029db376e9e-01;due to permamnence during christmas period and calendar constraints;no
+56ad4223-5f11-4dc3-a981-2dc3cafac515-01;due to permamnence during christmas period and calendar constraints;no
+58a012ea-a5f8-47ad-b34a-8bd8d5c0a1ff-01;due to permamnence during christmas period and calendar constraints;no
+61e96b35-9ec5-4a8e-83bf-cf77206b9a35-01;due to permamnence during christmas period and calendar constraints;no
+64cb0439-e770-4390-982b-ca7bd0853757-01;due to permamnence during christmas period and calendar constraints;no
+64f45ecf-4edf-4bb2-b16d-929ff3aa7a2c-01;due to permamnence during christmas period and calendar constraints;no
+077c53f1-f6a6-4a1a-9f33-abfd860d3b69-01;due to permamnence during christmas period and calendar constraints;no
+078ab966-47d9-4453-9d4a-2e162548e1f1-03;due to permamnence during christmas period and calendar constraints;no
+82bf2925-0402-4194-b3e0-ee62efec1bd2-01;due to permamnence during christmas period and calendar constraints;no
+85dd48b6-5732-4f14-b8d9-fcc178ce2b3a-01;due to permamnence during christmas period and calendar constraints;no
+88fd221d-710a-4508-aa74-0588cdca14a7-01;due to permamnence during christmas period and calendar constraints;no
+98ccdc07-c99f-4dce-ad07-d93303a39606-01;due to permamnence during christmas period and calendar constraints;no
+99c5b6ea-9c42-4336-a93e-066a4f595121-01;due to permamnence during christmas period and calendar constraints;no
+108e90dd-b970-49e9-bf85-6edbaf61ab56-01;due to permamnence during christmas period and calendar constraints;no
+118c1af6-769c-4091-99c5-cfc0a05ac7fa-01;due to permamnence during christmas period and calendar constraints;no
+141d1e9c-99ad-48ff-b02d-95b76110ec4d-01;due to permamnence during christmas period and calendar constraints;no
+163c79fc-e212-47dc-9836-2d8569549400-01;due to permamnence during christmas period and calendar constraints;no
+248dfbec-6d48-4c36-b49e-203c063faaa7-01;due to permamnence during christmas period and calendar constraints;no
+250f113e-8370-4d4b-bcc3-36ade2cb818a-01;due to permamnence during christmas period and calendar constraints;no
+286ad539-c191-409e-a088-6033cff6f47c-01;due to permamnence during christmas period and calendar constraints;no
+310f2792-8436-4b22-85e8-4df94f3522a3-01;due to permamnence during christmas period and calendar constraints;no
+413bb223-ddaa-4b2d-bb1a-0bffae297d25-01;due to permamnence during christmas period and calendar constraints;no
+419a0c31-0d3e-482c-978b-0c7bf1d93665-01;due to permamnence during christmas period and calendar constraints;no
+489ab04f-fced-4319-bac2-6cdae48423e2-01;due to permamnence during christmas period and calendar constraints;no
+505ae586-8485-4666-ad38-ebbe67dc4c14-01;due to permamnence during christmas period and calendar constraints;no
+0545f70f-0e14-4337-a9c1-2f2540f1de17-01;due to permamnence during christmas period and calendar constraints;no
+570e9d77-283a-481b-91fe-c95e8c9cb6c2-01;due to permamnence during christmas period and calendar constraints;no
+652dc531-f3dd-488a-b2b3-1eedd890f5a7-01;due to permamnence during christmas period and calendar constraints;no
+692d9921-ad00-4bde-8201-107129941858-01;due to permamnence during christmas period and calendar constraints;no
+764c6c20-111f-488b-b8b8-3b6b433dd950-01;due to permamnence during christmas period and calendar constraints;no
+791c8960-eaef-4a15-a10e-38e12e8f6e84-01;due to permamnence during christmas period and calendar constraints;no
+884dc72d-42d6-4d13-a450-83f13ce0dd10-01;due to permamnence during christmas period and calendar constraints;no
+2066ba60-0944-48f7-9339-d9a9d0ffe3ce-01;due to permamnence during christmas period and calendar constraints;no
+03873b7d-555b-4a1f-ae67-7eb40791af80-01;due to permamnence during christmas period and calendar constraints;no
+04748e31-32e3-47c4-b0be-8cac9a7bc2eb-02;due to permamnence during christmas period and calendar constraints;no
+9028a454-1f86-4b71-8ac6-c1b21672ebc3-01;due to permamnence during christmas period and calendar constraints;no
+9476cfe2-fc34-479b-88be-e26b3b3b2892-01;due to permamnence during christmas period and calendar constraints;no
+31154c47-094e-4a5f-98c2-140f0361a473-01;due to permamnence during christmas period and calendar constraints;no
+37695a44-df32-4264-a54f-905992f4f634-01;due to permamnence during christmas period and calendar constraints;no
+39539c21-d5c6-4629-b3d9-6653b978b593-01;due to permamnence during christmas period and calendar constraints;no
+45234af2-9c0d-41e8-9fa9-a86ba326bec6-01;due to permamnence during christmas period and calendar constraints;no
+48457fe8-7c99-4aa1-8883-c2dba3fb5ad1-01;due to permamnence during christmas period and calendar constraints;no
+82465d5d-da0c-413d-a950-b385f06ea89f-01;due to permamnence during christmas period and calendar constraints;no
+91418e1a-ea7c-4142-b135-5d7c55ff098d-01;due to permamnence during christmas period and calendar constraints;no
+905545b2-ff51-440d-9789-416a5f4305c4-01;due to permamnence during christmas period and calendar constraints;no
+9690519e-478f-4603-b8a7-50cc1659863b-01;due to permamnence during christmas period and calendar constraints;no
+22608914-8e3d-43e8-a101-c6b0539cb48e-01;due to permamnence during christmas period and calendar constraints;no
+62937380-7a63-46f8-bd33-2b544103b6cb-01;due to permamnence during christmas period and calendar constraints;no
+81000605-51c9-42b6-bd52-0d84dcd2dc6e-01;due to permamnence during christmas period and calendar constraints;no
+97641155-a4f7-44f4-b645-f444599df289-01;due to permamnence during christmas period and calendar constraints;no
+a24d607d-1d95-450c-ac52-874a513248d5-01;due to permamnence during christmas period and calendar constraints;no
+a62f2002-d9b3-4f57-b142-7b33b1751f48-01;due to permamnence during christmas period and calendar constraints;no
+ab93f818-554f-4cbd-9880-3639d77c0bde-01;due to permamnence during christmas period and calendar constraints;no
+abe99b0a-f447-4525-8b08-3012a5f667af-01;due to permamnence during christmas period and calendar constraints;no
+af1f43fe-345b-4a1d-9f8a-4ba687b73193-01;due to permamnence during christmas period and calendar constraints;no
+af378f59-fff8-4cda-afcb-7d27b6abe97d-01;due to permamnence during christmas period and calendar constraints;no
+b00f3a6b-d482-4ce7-9a32-df03360b45df-01;due to permamnence during christmas period and calendar constraints;no
+b21ed0a6-a937-415e-860c-a0f5ae0e578d-01;due to permamnence during christmas period and calendar constraints;no
+b78ff1c8-e107-430e-9d6c-420ec57c2b17-01;due to permamnence during christmas period and calendar constraints;no
+bc46c0b5-7a78-4428-9c26-1c75a76e9869-01;due to permamnence during christmas period and calendar constraints;no
+bd8d4bc4-5b4d-4390-8195-6ea126fa5a5d-01;due to permamnence during christmas period and calendar constraints;no
+c0dfe1c1-a5bf-44c7-90b5-95c2430a2df3-01;due to permamnence during christmas period and calendar constraints;no
+c9e7e5c3-fae4-4f78-95a7-f3efa36ce892-01;due to permamnence during christmas period and calendar constraints;no
+c96af24d-9d02-4ca7-b6ba-575429249957-01;due to permamnence during christmas period and calendar constraints;no
+c453a0e2-f3a9-4a89-8b24-50f66ee07516-01;due to permamnence during christmas period and calendar constraints;no
+c5306a22-48c6-40fb-b2b3-55160270ab8c-01;due to permamnence during christmas period and calendar constraints;no
+c0103037-8bef-4bc3-acc8-cfd1b95e08eb-01;due to permamnence during christmas period and calendar constraints;no
+cb422f1d-d7e8-47e6-b236-fcd800cbf37b-01;due to permamnence during christmas period and calendar constraints;no
+cbf49eae-0444-412b-b6a8-f04dad817b8c-01;due to permamnence during christmas period and calendar constraints;no
+d8e34e6d-3128-408f-81e3-70269405e5ee-01;due to permamnence during christmas period and calendar constraints;no
+d90cb70a-d500-4a9d-956e-5e04e5e8c624-01;due to permamnence during christmas period and calendar constraints;no
+d0785717-49bd-4b8c-88f4-e0d4625c3d11-01;due to permamnence during christmas period and calendar constraints;no
+de476862-0a57-4733-92f4-e321372eb757-01;due to permamnence during christmas period and calendar constraints;no
+e2ee8d42-f3e2-4c73-a4fb-3f35b8c57312-01;due to permamnence during christmas period and calendar constraints;no
+e21970a5-484c-4821-94d8-bb9bd0f79b90-01;due to permamnence during christmas period and calendar constraints;no
+e45988db-efcc-4686-81dd-8132102a5641-01;due to permamnence during christmas period and calendar constraints;no
+e0552692-00c0-415d-8946-292c57ddb5a2-01;due to permamnence during christmas period and calendar constraints;no
+eaffc3c5-d268-4463-bea3-1d1b289648b4-01;due to permamnence during christmas period and calendar constraints;no
+eb466744-c97a-4fbf-98ee-817d3c63ecb5-01;due to permamnence during christmas period and calendar constraints;no
+ee0e1307-7bf3-4cf5-92db-df2398162094-06;due to permamnence during christmas period and calendar constraints;no
+eef4a2e3-fe21-4d91-9691-3dd14e2f6049-01;due to permamnence during christmas period and calendar constraints;no
+ef5d8912-a9fa-46cc-bca5-f03ad592b4f0-01;due to permamnence during christmas period and calendar constraints;no
+ef7cbd6d-d2c7-4b95-9c40-2b1adfbe1ea0-01;due to permamnence during christmas period and calendar constraints;no
+f5cfac22-24de-4402-85b0-43521e4aac8c-01;due to permamnence during christmas period and calendar constraints;no
+f8d07c77-0c66-4335-a9dc-70d4ec685955-01;due to permamnence during christmas period and calendar constraints;no
+f17f1d59-1094-43be-bee0-be4c4e39b0b2-01;due to permamnence during christmas period and calendar constraints;no
+f64a4ab9-b924-4713-a8f4-7fa99fc35922-01;due to permamnence during christmas period and calendar constraints;no
+f94f3c57-05e3-4055-ba83-619d1140f215-01;due to permamnence during christmas period and calendar constraints;no
+f49539b3-c17d-4020-a6e3-fbc134b2a65b-01;due to permamnence during christmas period and calendar constraints;no
+fa2f4c7c-cb8c-4fd1-a38b-97e15b69e6ff-01;due to permamnence during christmas period and calendar constraints;no
+fd4a584a-8992-4120-8262-e67b25f9482d-01;due to permamnence during christmas period and calendar constraints;no
+ff6ce228-db74-4de7-953b-e489f97fb3bf-01;due to permamnence during christmas period and calendar constraints;no
+ff08cb7f-692b-4d46-939a-913e1ace6e0e-01;due to permamnence during christmas period and calendar constraints;no
+5a3dd2e8-74eb-447b-ab3b-fd74b5c51023-01;Bug 01-2025 and notice blocked during lawfulness check;no
+87b469c9-1643-442e-a414-1ab6522af750-01;Bug 01-2025 and notice blocked during lawfulness check;no
+c121a1d3-4f34-4ac6-9586-b168affaa341-01;wrong usage by the user of the future publication date ( before main publication) and publication time should be 0;yes
+0a59e826-ce86-4b06-823d-858af1bc8938-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0b336da9-6558-48bd-9861-f0c9ce947bf1-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0b987503-ebb0-4994-94b4-1e489ef79c98-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0c9ad34f-dd5a-4910-97e0-fa0fb3d8f93b-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+00d852af-c2cd-45b3-9fe6-21dcac258410-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0e467472-7287-4236-a6aa-150c6879de6a-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0efd977b-e1af-4371-a774-04cd0764db99-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0f3a4823-7c19-46a8-a6e3-efc189e8ded4-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+1ab79ced-babf-4fb8-b901-d06fd16103f3-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+1b2d177d-8a88-4569-8e91-3cd2ade1be88-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+1b351040-1ea7-4c29-b9dc-46e68c93f69f-03;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+1d7a9f78-4fb9-44ca-a945-86b4b787681c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+01d28856-1783-424c-8fce-c4edaeec8ad3-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+2b8b5b3b-8a4c-4e18-8597-c0550d3bb720-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+2b24f7b5-6001-4ee3-8ab5-68be66051e25-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+2b036870-7578-4609-9a3f-5eafa20ad9d4-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+2dcd6357-c914-4e46-9656-85b8cec9bc3d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+2fc1ed94-afff-4599-a24b-085831dd1c12-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+3b8541e4-13d9-44ce-9300-f4616e4e2dd5-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+3fe5689f-6e89-4dfb-9727-1545b4911378-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+3ffb2958-b778-464a-a03c-6d1c1bfbdf66-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+4a5ed75a-0955-46d8-bbb2-382129bba5ab-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+4b0bd70f-1370-46ba-8d51-aa385d592ad8-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+4b73eea5-e787-4c93-8f8d-63e98effbfa2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+04d321ce-a86c-43ba-ac07-b3a0958654b0-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+4d790c81-bf6d-477c-a391-b0610eb976c9-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+4e0cfdf3-ab61-42eb-8e04-b4af3d56d3ad-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+4e5686fb-8070-40ea-9dbe-3304516cbc97-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+4f537d40-3797-449e-bae4-d51a94add99f-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+4fcfc750-82ce-4b9f-bcdc-9a9116978bac-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+5abef723-93b4-49ce-a432-9945797839d6-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+5fda726b-9d87-4151-8e22-328ac87a7168-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6aae3db1-c8a8-4c78-ab27-7bb5c078310e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6b9f9013-dbe6-420e-95ed-f71b6d50c2d2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6c01c6fe-7c5d-43c7-9d45-aa57e243d30d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6c3211ef-f8d0-4e30-86a8-eb146d55e234-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6e6e3df8-3d7b-4681-8160-f1067aa124e9-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6ea8f1a2-97a6-49ac-ab3e-410a82212fb7-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6edb66c0-1fec-46c3-b2a8-a31a65db8ddd-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+7d9da518-1dbd-4aa9-8b46-1d447f17eb36-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+7d18eed2-8ddd-499e-a6d5-4c7e8d6d37b5-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+07f132f4-2eee-4829-8cab-d495e196722c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+8aa12221-33e3-4112-b9f7-6f05564476ab-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+8c02d6dc-270e-40f2-a697-21bdf6af6640-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+08c07d2e-339c-43a2-bb9e-99beb1b5d9cc-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+8cf94ece-674c-4ee4-9d07-a67aa74dacbd-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+8d2c81c4-f85a-436e-9b40-138bc4136435-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+8d433517-0936-421e-88d8-e7204fb3e288-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+8f542c14-28de-4ea4-95e5-28dabf664158-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+9af6ff27-d56f-4901-a17c-af8c302597be-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+9b8dc9b5-4498-4423-9148-770f7ee738eb-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+9bc8f174-3950-4cc0-9ae2-653529813ffd-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+9c04d4d4-40e0-4a7d-bf53-ccc987feddad-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+09de076a-aaba-42f6-9ed9-f64ca63da89b-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+9f697dcd-3d67-4cdd-bea5-745dbcaa6558-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+13dba74b-b4ec-4588-b78b-9a646860ab9c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+14b9c9f1-ba84-481b-8a5c-0f3c0d102e4a-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+14d3cd49-6d3f-4e09-a83c-87241d2144a8-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+016e861c-6d24-4612-8f7f-231a79e351f8-03;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+16f3366c-7120-4c76-a382-6c66f64936bf-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+018fb9b9-8aeb-4b57-a5c7-d120a36e1b50-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+19c9925a-bfe8-43f7-b8cc-c52ecd73fd9a-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+21d9925b-754e-4e32-94a0-e4ebedb3a775-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+25a29337-678e-4244-a7a7-11038ce838bf-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+25f1da96-b6ff-4aff-8f00-66b374ca4c4a-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+26dc1a2b-e682-4d3e-b2e1-3c194f60e9a1-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+35b337e0-d617-47b0-8651-30180d7af550-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+42b4c8de-adf5-4a4c-87b6-aac527d35cb6-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+50fdc9cf-a64d-49ea-99aa-ae46f9222123-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+62b1584e-7d22-4cdf-a394-67c929cf478e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+63d04333-a683-4529-b892-5e46b7de0a09-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+67dc0d9f-f83a-471f-b8f7-a8c184d2785f-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+69fe0600-959b-4a49-b542-7814309e31ec-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+70c88307-7acf-4859-b32f-8dba69797cfc-02;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+79f5ed2b-4df6-4a99-9e6e-1c6b458d133d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+81d94b57-f5a0-459f-9486-67b32bd61d59-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+83c9eabb-8f7e-4f9d-a098-e62d1f9a648e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+91cfecd1-7389-4d25-9bf5-b67127eb2adf-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+94aaf7d6-55b5-41cd-8874-de8ab02d1a3e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+98cf0fa9-f2b8-4838-915b-9df5d4443ded-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+106db0b4-2987-4620-8cc1-72999d7442b7-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0143c9ff-d1c9-4e26-9bf5-6dd72af50b59-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0190a0a5-2249-4924-979b-d6dcee188821-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0190daa0-2e88-4ae1-b783-dd88a03fe7d9-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0190daba-eeba-4ce0-a848-250703d848ad-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+0190e9f9-4fde-40e8-b59f-517fc4c9a222-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+192d68a9-4648-4b12-828d-dd98040d49ee-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+198fd4f9-7fae-4642-a23c-53ef3c253424-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+281b1331-a7d8-44a5-8a7d-bb411f7cdaa0-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+351efda6-25f9-457f-a0a7-d0a8539596c1-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+396ad7b6-3d5b-4158-a037-0406ff5415b0-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+451d66b2-ba74-45f5-b439-748381710ed7-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+475f0b6b-dc17-4e23-a204-092db65200d5-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+535dac35-7461-411d-a041-a0424f96960a-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+541ac62a-11eb-44ac-8a17-55c6b47a110f-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+615cbe30-04d0-4c05-b3ae-649d933b7267-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+616a9fce-f2fa-4a45-98d4-96a516c8dd67-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+648fd359-102d-4575-b176-681bacd1ff7c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+682e8123-95da-4519-8532-c0f1903cecd2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+735aa954-19e5-42c9-ab3f-b7339ac23175-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+783ae3cc-b451-4c6b-8a16-c884555e8a96-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+807a7f24-7f66-4ebf-9303-01a518629ece-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+822b4c37-3a8e-46f8-a413-5b535806a64f-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+822fa409-dde7-45d1-a1da-0be13fb238fe-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+963a8735-6e39-455a-b5d7-bdac8aea59b0-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+965d478d-f22a-457a-be58-8fbb2b1c5943-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+1356f88f-45eb-4922-8c3c-ba65c616df68-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+1728e4e9-2b31-4111-a4c7-9cf7d387d29c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+01907dc7-f086-4777-ac7b-4edae5db2b80-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+2134abae-42a0-4608-9abb-d3da60a80c9b-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+3768d136-c2f1-4750-b2ec-206634742f94-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+3825d9e9-3a20-427d-8b9c-0aa4fa91fc6a-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+5104e19e-aa78-4e3d-ae94-d6cf0cf0f9aa-03;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+05982e85-18dc-49b5-8069-f451ccce8a32-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6201e985-59f2-4fd3-ba10-fbc4b3686fb2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6261b3db-0ba8-4890-a6dc-fcf235136bd2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+7914a2d5-634d-48ef-8c3b-f8fbf80b28f8-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+9490aa2d-2d20-48b0-af0c-c5e6aeca0fa2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+19620ae6-3794-43fb-a209-d161a29b67ca-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+26226dab-970d-412f-b79c-6886b2317384-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+29715d92-fcf4-4253-a098-a32cf67ec0ab-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+34961d19-eb39-406b-bd4d-cd271307a458-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+43499e8f-005c-43c7-b720-b175b05819dc-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+045883ae-4090-4629-8a60-efda14011f5b-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+53426fbd-e5f2-4b34-a171-c902d978086c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+57646af3-9d04-4ddc-9bb0-51cba7a38278-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+59386b29-ab5b-4685-842b-072a4f6efa71-02;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+76409d1a-a040-4715-8ea4-bfd257c50890-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+78882b7d-0c0e-4c7e-a28f-96b542a814df-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+80641d42-ed23-4ca5-b439-369af1408261-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+531700d9-4529-4726-aef1-6961b686ffe3-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+923578d7-046a-4d94-aafa-bd255d2b8412-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+1902469a-93d4-48aa-9eba-0c213065b10e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+06367101-8fe1-4b7a-a3d1-79cb37cd77a9-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+6643764f-0cb6-4491-a10e-aa7205a7225c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+12779536-9ff2-454f-826c-96b01808bd9d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+13986506-c877-4219-b640-1388f34ca5d0-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+51371999-cb99-4b22-a50c-c823ceacb28a-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+52272572-193a-4cea-874f-07015e8952eb-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+73537769-6f6f-4e9c-b79c-2fa19a04c65b-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+78881776-deac-4f79-99fa-83b753bbbec6-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+79496156-4193-4f02-902c-40292ee8aa07-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+a1dce598-9c2b-48bc-a782-1bdc65c8e946-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+a4c1b5d4-4b9d-43e8-bfc9-d99c773448bd-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+a5d6297d-1241-42f1-9388-b8ce181a6d6d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+a09f4b39-7e10-49c4-8b0b-b31801de3ece-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+a23d1852-7042-4bdd-8fbb-504f8f6acf9c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+a73ea909-2a3b-4bf5-a6ce-5e7a07f31302-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+a5615f4b-19e0-48a1-838a-24060b384fa2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+a9823fa2-d37d-4c32-999b-8d9910dc2061-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ac0e067b-cc36-463a-a4d2-ee5dcc959984-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ac06c89e-c93f-42e7-be85-f951082e50c9-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ad4ee53d-acab-4104-b0fe-c4ee0783079c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+adb0e005-1943-4fba-8d8d-c290c625153d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+adbbf60e-0eca-47a9-bd72-ed021fbb1d11-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ae5fde74-1f41-4bd0-9de6-7a36911705df-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b1fe2605-7ff8-4915-9a4c-f4f0918a1242-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b2ceae80-5b9b-4d93-8f36-58db8739857e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b4e32a95-7950-4e01-8795-ba6aaa37346d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b5f8e4e3-882b-44d6-84d7-69b0f6179ad9-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b8dbb203-b261-4b4f-a0f0-683a3a67ab6a-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b8dfd66c-64d2-4c9d-b9ed-9d5327899683-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b9e4bb7e-79ef-48cf-87f3-c2d00cfabeee-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b14ce941-f89c-468e-aa2e-934b84940b18-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b15f1931-ba66-4a84-9d3c-6de09d51d2ba-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b59e2c12-a0b1-4374-9f2f-90f67fd891d0-04;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b79ce8b7-cae9-4d7b-a753-159730153ba2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b4310b31-60d1-489c-8b24-b009da114188-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b5521f4a-c3a5-4d85-ae57-87c3456ed8ac-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b707732e-851e-42fc-8ce4-682f4ef5639d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+b975373d-0db7-471b-ad48-0274e6fbbec2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ba52350b-4cee-4b3d-b047-9d9e9e9268b7-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+baacff65-1e7e-4cb2-8afb-7a16d71fd81c-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+bb398612-87e7-4409-99bd-344e198c81e3-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+bbf9242c-c750-40f1-8012-c0d7c16a5086-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+bcd6932b-3d18-48ec-8e38-1dcbd3f9e3a4-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+bce7eed0-2475-4a83-bf23-a628e5284aaf-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+be772152-cb83-4a4a-8791-ae37d5ad08ee-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+bf55c344-1cc7-4649-85e5-a6a9898434bc-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+bfbf1480-af69-41b0-9048-0f0817df392f-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+bfd643dc-1fee-49cc-8bf1-8237032318eb-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c5d98adc-b0b7-44c1-81da-4cd608e9147d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c9c2365c-f2a4-4bcc-b514-2dbe2ca3855b-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c66e25fb-c880-4418-a98d-818e8e13898e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c66fc261-7e61-403d-8ec5-5f17e6f954cc-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c87d0c16-63e9-45a6-8e78-5889dd48e852-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c482fdbf-8202-45a7-9960-896f63b939a2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c617f906-82ca-4301-a899-caa6a711a559-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c748f3a0-cc60-48b7-a450-e7a3d4a1f117-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c753eaa5-680a-4b36-ba7c-31a492292365-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+caa14321-417b-4e28-922a-abe8bfffed8f-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+cabe8b2b-593a-4612-960c-fa80746ebfdf-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+cd01ae1d-1f62-41bf-b61b-53cdba6fa546-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+cd70f7ef-d130-41e1-9bb7-85054aa725b4-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+cf058227-926a-4d37-b401-70ce8294298f-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d0dfa0fc-de47-4d64-8996-7ab58f1fa293-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d1bdaab0-b8e2-47f2-9ba8-4ae858ae5e36-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d1deef9c-4272-4bfc-9c5b-9d80abac3f9e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d3efdcb4-4eb3-4433-98b6-f06c6f22b7e2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d7d308f6-3135-4545-bf71-7f6f4c775cfc-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d21d6a41-4315-48d3-9733-e0c183231b39-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d75a06da-eee3-4b91-b11d-3f24c80b17f2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d82cb04e-5e3b-428f-a584-aaf3f8807c2d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d093ecdf-afb5-46a1-bdd0-3c350d844f13-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d1090c0f-fd2a-4394-b72f-847db36192fb-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d1658b20-26d6-4175-bfc8-cce463232cb6-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d2612c7b-d32f-44c8-a6f7-9643ee843fd8-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d6307f28-762a-4b90-97b8-d87c7866eefc-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+d9945496-1c34-408b-9e2f-631401730c5e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+db6d9470-bd95-4258-a022-345b963606b5-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+db6576f8-ba75-46bd-9065-15f26833e198-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+dbc74467-66c9-4f46-b66a-34c9f1f03f95-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+dbdd5c27-64a4-4b16-b223-f9176754863d-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+dd584d16-c2d1-408e-931b-0aaa1c682263-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ddb03288-f5b9-4b01-b30a-a4a876c0f735-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+de6bd336-2d85-4170-a068-39e61859a72e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+df0b80b7-772e-4009-9374-12deb4047281-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e8d0ab8a-12fd-4151-8ab9-34cf51867da5-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e08d513d-f051-47d3-a2e8-0be5027246e3-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e77d5546-5d3e-4b89-b55e-716a9262f117-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e856fac6-e08f-4493-a6ff-72e0aca45584-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e1453a17-3ffe-4927-801e-bfc17b9cf148-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e3608e01-90b5-4ea3-9495-466671db6d01-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e4262d80-60eb-463e-86b6-db935763dbe9-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e30477d7-e076-4fcb-8b79-8aef8a6b74c7-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e475990f-7bc7-4e63-b02d-aa30e785ec51-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+e3450807-d64e-4fc2-bd26-87dacb5d75de-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ea4dd94d-3639-48f1-af8f-791dcbce2166-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+eac10bd4-3ef4-44e1-89cd-fa88e1f275f9-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ebf62991-8823-45e1-a185-e913b37a2e8e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ec612a36-696a-4364-96c1-c29cbcb78255-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ecd65e5a-bf4b-4737-8574-72de042e9110-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ed86563e-8404-49a5-bd5d-0361adbfece7-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f4d1ad61-f533-4cd4-94aa-95b477d4fe40-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f6c54b03-4cbc-4354-b917-ea73cc6512ee-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f08edc35-23d2-4d1c-980b-3a5dd0965b62-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f9c00c72-56d0-46b4-942b-cb5d1b6742dc-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f17cfc81-a83f-4417-9e0d-9facae2b8797-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f71d7b94-ec98-49e3-be26-ddc08fd5e9f9-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f80ebb48-31b7-4c56-a82f-77cf80ff8417-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f85b63c0-8adc-4a5f-b5de-55ee2fda3bdd-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f793d33c-73ae-46cf-a5de-d043c024cd86-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f3319ab5-3a29-408b-9e49-589ce790b229-03;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f5028bc6-72ef-4164-b3fb-69c4e50394cb-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+f23665ef-72e0-42c9-b31b-ae867ec7462e-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+fa544f3f-3f4a-41e3-8118-8b692dcf8ea6-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+fd7c41f1-d685-4bbf-a0a3-d99995a39089-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+fe608c7a-648d-4dca-b66e-c1bf6f9111c1-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+ff007ef8-b2b7-465e-b826-f6c6afa8eb99-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+cec7cb5b-6ea7-4f3e-9648-7dee4ca54a0f-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+c154a5be-4703-480e-9ccd-e550541d4a1b-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+59c8956b-8c0f-4b74-be64-11d257774ca7-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+9da0124e-231b-4375-8445-1fcd3e3e91c2-01;multiple restart of the daily export and notice submitted between 2 starts and publication time should be 0;yes
+
+] (delimiter is ';', embedded labels);

@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "fc886b28-acbc-43f8-892b-8435bd3f390c",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vCalEnd",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "46752",
+  "qIsScriptCreated": true
+}

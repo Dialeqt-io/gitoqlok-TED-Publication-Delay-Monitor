@@ -1,0 +1,91 @@
+{
+  "qInfo": {
+    "qId": "LAyvJQ",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "final_status"
+    ],
+    "qFieldLabels": [
+      "Final Status"
+    ],
+    "qLabelExpression": "='Final Status'",
+    "qAlias": "Final Status",
+    "title": "Final Status",
+    "coloring": {
+      "changeHash": "0.252866055029363",
+      "hasValueColors": true,
+      "colorMapRef": "LAyvJQ"
+    }
+  },
+  "qMetaDef": {
+    "title": "Final Status",
+    "description": "",
+    "tags": []
+  },
+  "_ColorMapModel": {
+    "qInfo": {
+      "qId": "ColorMapModel_LAyvJQ",
+      "qType": "ColorMap"
+    },
+    "qMeta": {
+      "title": "",
+      "description": "",
+      "createdDate": "2026-11-09T10:21:00.419Z",
+      "modifiedDate": "2026-11-11T14:48:16.106Z",
+      "published": false,
+      "publishTime": "1753-01-01T00:00:00.000Z",
+      "approved": false,
+      "qSize": -1,
+      "sourceObject": "",
+      "draftObject": ""
+    },
+    "colorMap": {
+      "colors": [
+        {
+          "value": "IN TIME (CORRECTED)",
+          "baseColor": {
+            "color": "#7CC4A4",
+            "index": -1
+          }
+        },
+        {
+          "value": "IN TIME",
+          "baseColor": {
+            "color": "#1B7F5B",
+            "index": -1
+          }
+        },
+        {
+          "value": "OVERDUE",
+          "baseColor": {
+            "color": "#C62828",
+            "index": -1
+          }
+        },
+        {
+          "value": "TO CHECK",
+          "baseColor": {
+            "color": "#8A9099",
+            "index": -1
+          }
+        },
+        {
+          "value": "OVERDUE - JUSTIFIED",
+          "baseColor": {
+            "color": "#E08A00",
+            "index": -1
+          }
+        }
+      ],
+      "nul": null,
+      "oth": null,
+      "pal": null,
+      "single": null,
+      "usePal": true,
+      "autoFill": true
+    }
+  }
+}

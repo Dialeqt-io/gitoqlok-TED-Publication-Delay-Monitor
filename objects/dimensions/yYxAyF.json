@@ -1,0 +1,27 @@
+{
+  "qInfo": {
+    "qId": "yYxAyF",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "scenario_code"
+    ],
+    "qFieldLabels": [
+      "Scenario Code"
+    ],
+    "qLabelExpression": "='Scenario'",
+    "qAlias": "Scenario Code",
+    "title": "Scenario Code",
+    "coloring": {
+      "changeHash": "0.36172682682228463",
+      "hasValueColors": false
+    }
+  },
+  "qMetaDef": {
+    "title": "Scenario Code",
+    "description": "",
+    "tags": []
+  }
+}

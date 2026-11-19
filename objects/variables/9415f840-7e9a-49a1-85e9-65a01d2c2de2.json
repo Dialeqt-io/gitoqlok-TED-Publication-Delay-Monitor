@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "9415f840-7e9a-49a1-85e9-65a01d2c2de2",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vQVD_Notices",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "lib://AttachedFiles/QVD_Notices.qvd",
+  "qIsScriptCreated": true
+}

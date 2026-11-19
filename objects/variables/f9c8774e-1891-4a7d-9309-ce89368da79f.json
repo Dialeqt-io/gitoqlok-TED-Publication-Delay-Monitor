@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "f9c8774e-1891-4a7d-9309-ce89368da79f",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vE",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "10",
+  "qIsScriptCreated": true
+}

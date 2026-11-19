@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "f14bd292-d980-4c5c-8e0e-87439167c3c9",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vUseExportEndForRestart",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "1",
+  "qIsScriptCreated": true
+}

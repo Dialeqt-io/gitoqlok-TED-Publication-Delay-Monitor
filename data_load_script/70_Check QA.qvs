@@ -1,0 +1,35 @@
+///$tab 70_Check QA
+Tmp_Check:
+LOAD
+    Count(business_notice_id)                              AS n_rows,
+    Count(DISTINCT business_notice_id)                     AS n_ids,
+    Sum(If(scenario_code = 'X', 1, 0))                     AS n_to_check,
+    Sum(If(reception_source = 'CHECK_IN_FALLBACK', 1, 0))  AS n_fallback,
+    Sum(late_inclusion_flag)                                 AS n_late_inclusion,
+    Sum(exception_redundant)                               AS n_exc_redundant,
+    Sum(anomaly_published_before_earliest)                 AS n_before_earliest
+RESIDENT Notice;
+
+LET vRows = Peek('n_rows', 0, 'Tmp_Check');
+LET vIds  = Peek('n_ids', 0, 'Tmp_Check');
+TRACE >>> Avis : $(vRows) lignes / $(vIds) identifiants distincts (doivent être égaux);
+LET vX = Peek('n_to_check', 0, 'Tmp_Check');        TRACE >>> TO CHECK (données insuffisantes) : $(vX);
+LET vF = Peek('n_fallback', 0, 'Tmp_Check');        TRACE >>> Réception via check-in (fallback) : $(vF);
+LET vR = Peek('n_late_inclusion', 0, 'Tmp_Check');    TRACE >>> Avis inclus en cours d export (late inclusion) : $(vR);
+LET vE = Peek('n_exc_redundant', 0, 'Tmp_Check');   TRACE >>> Exceptions devenues inutiles : $(vE);
+LET vB = Peek('n_before_earliest', 0, 'Tmp_Check'); TRACE >>> Publiés avant la 1re date possible (à analyser) : $(vB);
+DROP TABLE Tmp_Check;
+
+// Exceptions ne correspondant à aucun avis chargé
+Exceptions_Unmatched:
+NoConcatenate
+LOAD business_notice_id AS exc_unmatched_id, explanations AS exc_unmatched_explanations
+RESIDENT ManualFixes
+WHERE NOT Exists(business_notice_id_TM22, business_notice_id);
+DROP TABLE ManualFixes;
+
+LET vU = NoOfRows('Exceptions_Unmatched'); TRACE >>> Exceptions sans avis correspondant : $(vU);
+
+If $(vRows) <> $(vIds) THEN
+    TRACE !!! ATTENTION : doublons d avis détectés - vérifier les jointures;
+END IF

@@ -1,0 +1,37 @@
+///$tab 30_Premier export possible
+// ---------------------------------------------------------------------
+// IntervalMatch : chaque réception est placée entre deux démarrages d'export
+//   ]démarrage précédent ; démarrage suivant]  -> premier export qui pouvait prendre la notice
+//
+// IntervalMatch est INCLUSIF aux deux bornes : la borne basse est décalée d'une seconde
+// pour que les intervalles ne se chevauchent pas (=> pas de doublons).
+// ---------------------------------------------------------------------
+Export_Intervals:
+LOAD
+    plan_pub_date                                         AS iv_pub_date,
+    plan_export_first_start                               AS iv_next_export_start,
+    Num(plan_export_first_start)                          AS iv_upper,
+    If(RowNo() = 1, 0, Peek('iv_upper') + 1/86400000)    AS iv_lower
+RESIDENT Production_Calendar
+WHERE NOT IsNull(plan_export_first_start)
+ORDER BY plan_export_first_start ASC;
+
+Tmp_Rec:
+LOAD business_notice_id, Num(reception_ts) AS rec_num
+RESIDENT Notices_1
+WHERE NOT IsNull(reception_ts);
+
+Tmp_IM:
+IntervalMatch (rec_num)
+LOAD iv_lower, iv_upper RESIDENT Export_Intervals;
+
+LEFT JOIN (Tmp_IM)
+LOAD iv_lower, iv_upper, iv_pub_date, iv_next_export_start RESIDENT Export_Intervals;
+
+LEFT JOIN (Tmp_Rec)
+LOAD rec_num, iv_pub_date, iv_next_export_start RESIDENT Tmp_IM;
+
+Map_EarliestPub: MAPPING LOAD business_notice_id, Num(iv_pub_date)          RESIDENT Tmp_Rec;
+Map_NextExport:  MAPPING LOAD business_notice_id, Num(iv_next_export_start) RESIDENT Tmp_Rec;
+
+DROP TABLES Tmp_IM, Tmp_Rec, Export_Intervals;

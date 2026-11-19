@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "4d6c8dee-1b8c-45f9-a2f0-9d244e84f664",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vRows",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "200000",
+  "qIsScriptCreated": true
+}

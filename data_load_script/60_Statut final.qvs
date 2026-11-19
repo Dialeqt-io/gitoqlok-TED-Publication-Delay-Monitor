@@ -1,0 +1,39 @@
+///$tab 60_Statut final
+LEFT JOIN (Notices_3)
+LOAD * RESIDENT ManualFixes;
+
+Notice:
+NoConcatenate
+LOAD *,
+    If(final_status = 'TO CHECK', Null(), If(WildMatch(final_status, 'IN TIME*'), 1, 0)) AS is_compliant,
+    
+    // Status explanation
+    scenario_label & ' | ' &
+    If(scenario_code = 'A',
+       'Received ' & Timestamp(reception_ts, 'DD/MM/YYYY hh:mm') & ' (' & reception_source & '), published '
+       & Date(actual_pub_date, 'DD/MM/YYYY') & ': ' & publication_delay_calendar_days
+       & ' calendar day(s), max ' & $(vSLA_Days) & ' -> ' & legal_check,
+    If(WildMatch(scenario_code, 'B*'),
+       'Requested ' & Date(ppd_requested_date, 'DD/MM/YYYY')
+       & ', earliest possible ' & Date(earliest_pub_date, 'DD/MM/YYYY')
+       & ', reference ' & Date(reference_pub_date, 'DD/MM/YYYY')
+       & ', published ' & Date(actual_pub_date, 'DD/MM/YYYY') & ' -> ' & ppd_check
+       & ' (real delay ' & publication_delay_calendar_days & ' calendar day(s))',
+       'Data issue: ' & data_issue_reason))
+    & If(late_inclusion_flag = 1, ' | Received during export, included in export of ' & Date(actual_pub_date, 'DD/MM/YYYY'))
+    & If(Len(explanations) > 0, ' | Exception : ' & explanations)
+                                                                                   AS rule_explanation;
+    ;
+LOAD *,
+    If(scenario_code = 'X', 'TO CHECK',
+       If(control_result_raw = 'IN TIME', 'IN TIME',
+          If(Corrections = 'yes', 'IN TIME (CORRECTED)',
+             If(Corrections = 'no', control_result_raw & ' - JUSTIFIED',
+                control_result_raw))))                                             AS final_status,
+    If(control_result_raw = 'IN TIME' AND Len(explanations) > 0, 1, 0)     		   AS exception_redundant,
+    WeekDay(reception_ts, 0)                                                       AS reception_weekday,       // Mon..Sun, lundi = 1er jour
+    Hour(reception_ts)                                                             AS reception_hour,
+    If(WeekDay(reception_ts, 0) >= 5, 1, 0)                                        AS is_weekend_reception
+RESIDENT Notices_3;
+
+DROP TABLE Notices_3;

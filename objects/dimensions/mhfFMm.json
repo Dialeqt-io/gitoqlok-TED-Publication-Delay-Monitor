@@ -1,0 +1,27 @@
+{
+  "qInfo": {
+    "qId": "mhfFMm",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "COUNTRY_LABEL_STAT"
+    ],
+    "qFieldLabels": [
+      "Country"
+    ],
+    "qLabelExpression": "='Country'",
+    "qAlias": "Country",
+    "title": "Country",
+    "coloring": {
+      "changeHash": "0.6344421037884831",
+      "hasValueColors": false
+    }
+  },
+  "qMetaDef": {
+    "title": "Country",
+    "description": "",
+    "tags": []
+  }
+}

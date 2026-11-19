@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "12b7adb5-0806-46b3-845e-9c236c11cb2e",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vCalStart",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "44927",
+  "qIsScriptCreated": true
+}

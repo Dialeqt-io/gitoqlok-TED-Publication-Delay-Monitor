@@ -1,0 +1,27 @@
+{
+  "qInfo": {
+    "qId": "BdP",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "reception_ts"
+    ],
+    "qFieldLabels": [
+      "Reception TS"
+    ],
+    "qLabelExpression": "='Reception TS'",
+    "qAlias": "Reception TS",
+    "title": "Reception TS",
+    "coloring": {
+      "changeHash": "0.012504409937247551",
+      "hasValueColors": false
+    }
+  },
+  "qMetaDef": {
+    "title": "Reception TS",
+    "description": "",
+    "tags": []
+  }
+}

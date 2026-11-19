@@ -1,0 +1,43 @@
+///$tab 80_Master calendar
+// ---------------------------------------------------------------------
+// Calendrier maître sur la date de publication effective (actual_pub_date)
+// Semaines ISO (lundi, règle du jeudi), indépendantes de FirstWeekDay
+// ---------------------------------------------------------------------
+Tmp_CalRange:
+LOAD Min(actual_pub_date) AS d_min, Max(actual_pub_date) AS d_max
+RESIDENT Notice;
+LET vPubMin = Num(Peek('d_min', 0, 'Tmp_CalRange'));
+LET vPubMax = Num(Peek('d_max', 0, 'Tmp_CalRange'));
+DROP TABLE Tmp_CalRange;
+
+Publication_Calendar:
+LOAD
+    actual_pub_date,
+    Year(actual_pub_date)                                                            AS [Publication Year],
+    Dual(Year(actual_pub_date) & '-Q' & Ceil(Month(actual_pub_date) / 3),
+         Year(actual_pub_date) * 10 + Ceil(Month(actual_pub_date) / 3))              AS [Publication Quarter],
+    Month(actual_pub_date)                                                           AS [Publication Month],
+    Date(MonthStart(actual_pub_date), 'MMM YYYY')                                    AS [Publication Year-Month],
+    Week(actual_pub_date, 0, 0, 4)                                                   AS [Publication Week],
+    Dual(WeekYear(actual_pub_date, 0, 0, 4) & '-W' & Num(Week(actual_pub_date, 0, 0, 4), '00'),
+         Num(WeekStart(actual_pub_date, 0, 0)))                                      AS [Publication Year-Week],
+    WeekDay(actual_pub_date, 0)                                                      AS [Publication Weekday]
+;
+LOAD Date($(vPubMin) + IterNo() - 1) AS actual_pub_date
+AUTOGENERATE 1
+WHILE $(vPubMin) + IterNo() - 1 <= $(vPubMax);
+
+// Rattachement du calendrier de production : les infos d'export de chaque OJS
+LEFT JOIN (Publication_Calendar)
+LOAD
+    plan_pub_date               AS actual_pub_date,
+    1                           AS is_publication_day,
+    plan_ojs_release_id,
+    plan_release_count,
+    plan_export_first_start,
+    plan_export_last_start,
+    plan_export_start_count,
+    plan_exported_on
+RESIDENT Production_Calendar;
+
+DROP TABLE Production_Calendar;

@@ -1,0 +1,28 @@
+{
+  "qInfo": {
+    "qId": "KjnGun",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "actual_pub_date"
+    ],
+    "qFieldLabels": [
+      "Publication date"
+    ],
+    "qLabelExpression": "='Publication date'",
+    "qAlias": "Publication date",
+    "title": "Publication date",
+    "coloring": {
+      "changeHash": "0.08521155086156595",
+      "hasValueColors": false,
+      "colorMapRef": "KjnGun"
+    }
+  },
+  "qMetaDef": {
+    "title": "Publication date",
+    "description": "",
+    "tags": []
+  }
+}

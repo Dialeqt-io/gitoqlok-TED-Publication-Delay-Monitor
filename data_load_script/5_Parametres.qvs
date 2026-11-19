@@ -1,0 +1,29 @@
+///$tab 5_Parametres
+// =====================================================================
+// TED - Délais de publication des avis  |  version 2 (refactoring)
+// Principe : (1) MESURER le délai réel pour chaque avis,
+//            (2) déterminer le SCÉNARIO (ASAP / PPD),
+//            (3) appliquer le CONTRÔLE propre au scénario,
+//            (4) appliquer les EXCEPTIONS sans jamais écraser la mesure.
+// Tous les paramètres sont ici : aucune valeur "en dur" plus bas.
+// =====================================================================
+
+SET vSLA_Days = 5;                       // délai légal max en mode ASAP (jours calendaires)
+SET vYearMin  = 2024;                    // première année de publication analysée
+LET vYearMax  = Year(Today());           // dernière année : automatique (plus de 2026 en dur)
+SET vTZ_Place = 'Brussels';              // export_logs.created_on est en UTC -> conversion heure de Bruxelles (gère l'heure d'été)
+//SET vQVD_Notices = 'lib://QS_Data (welcome_massseb)/eFormsData_2025.qvd';
+SET vQVD_Notices = 'lib://AttachedFiles/QVD_Notices.qvd'; 
+SET vUseExportEndForRestart = 1;         // 1 = utiliser aussi ojs_release.exported_on comme fin de fenêtre de redémarrage (vérifier son fuseau avant)
+
+// Conversions robustes : accepte un numérique Qlik ou un texte ISO, renvoie un numérique (Null si illisible)
+SET fTS   = Alt(If(IsNum($1), $1), Timestamp#($1, 'YYYY-MM-DD hh:mm:ss.ffffff'), Timestamp#($1, 'YYYY-MM-DD hh:mm:ss.fff'), Timestamp#($1, 'YYYY-MM-DD hh:mm:ss'));
+SET fDate = Alt(If(IsNum($1), Floor($1)), Floor(Date#(Left($1, 10), 'YYYY-MM-DD')), Floor(Date#(Left($1, 10), 'DD/MM/YYYY')));
+
+LET vReloadTime = Now();
+
+reload_eNotices2:
+LOAD * INLINE [
+LoadTime
+$(vReloadTime)
+];

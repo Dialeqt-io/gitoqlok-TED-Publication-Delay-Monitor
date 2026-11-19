@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "fcb4e1d3-8a1b-4fc7-9034-ae9ee0b88da5",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vSLA_Days",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "5",
+  "qIsScriptCreated": true
+}

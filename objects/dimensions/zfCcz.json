@@ -1,0 +1,27 @@
+{
+  "qInfo": {
+    "qId": "zfCcz",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "business_notice_id"
+    ],
+    "qFieldLabels": [
+      "Notice ID"
+    ],
+    "qLabelExpression": "='Notice ID'",
+    "qAlias": "Notice ID",
+    "title": "Notice ID",
+    "coloring": {
+      "changeHash": "0.39916019706098416",
+      "hasValueColors": false
+    }
+  },
+  "qMetaDef": {
+    "title": "Notice ID",
+    "description": "",
+    "tags": []
+  }
+}

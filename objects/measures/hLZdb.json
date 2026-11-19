@@ -1,0 +1,34 @@
+{
+  "qInfo": {
+    "qId": "hLZdb",
+    "qType": "measure"
+  },
+  "qMeasure": {
+    "qLabel": "PPD - After Ref. Date",
+    "qDef": "Count({<scenario_code={\"B*\"}, ppd_check={'AFTER REFERENCE DATE'}>} DISTINCT business_notice_id) ",
+    "qGrouping": "N",
+    "qExpressions": [],
+    "qActiveExpression": 0,
+    "qNumFormat": {
+      "qType": "F",
+      "qnDec": 2,
+      "qUseThou": 0,
+      "qFmt": "#,##0",
+      "qDec": ".",
+      "qThou": ","
+    },
+    "numFormatFromTemplate": true,
+    "coloring": {
+      "baseColor": {
+        "color": "#C62828",
+        "index": -1
+      }
+    },
+    "isCustomFormatted": false
+  },
+  "qMetaDef": {
+    "title": "PPD - After Ref. Date",
+    "description": "",
+    "tags": []
+  }
+}

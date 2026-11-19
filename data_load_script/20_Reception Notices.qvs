@@ -1,0 +1,113 @@
+///$tab 20_Reception Notices
+// ---------------------------------------------------------------------
+// 2.1 Date/heure réelle de réception : audit_log NOTICE_RECEIVED
+//     Règle explicite : PREMIÈRE réception (Min) si plusieurs événements
+// ---------------------------------------------------------------------
+/*
+LIB CONNECT TO 'OP_AWS_TEDMON22';
+
+Audit_Reception:
+LOAD
+    notice_id            AS business_notice_id,
+    $(fTS(logged_on))    AS logged_on_num;
+SQL SELECT notice_id, logged_on
+FROM tedmon22_database.audit_log
+WHERE category = 'NOTICE_RECEIVED';
+
+DisConnect;
+*/
+Audit_Reception:
+LOAD
+    business_notice_id,
+    logged_on_num
+FROM [lib://AttachedFiles/Audit_Log.qvd]
+(qvd);
+
+
+Tmp_Reception:
+LOAD
+    business_notice_id,
+    Min(logged_on_num)   AS rec_first,
+    Count(logged_on_num) AS rec_count
+RESIDENT Audit_Reception
+GROUP BY business_notice_id;
+
+DROP TABLE Audit_Reception;
+
+
+Map_Reception:      MAPPING LOAD business_notice_id, rec_first RESIDENT Tmp_Reception;
+Map_ReceptionCount: MAPPING LOAD business_notice_id, rec_count RESIDENT Tmp_Reception;
+DROP TABLE Tmp_Reception;
+
+// ---------------------------------------------------------------------
+// 2.2 Avis publiés
+// ---------------------------------------------------------------------
+Notices_Src:
+// LOAD
+//     business_notice_id_TM22                                   AS business_notice_id,
+//     publication_number_TM22,
+//     FINAL_SOURCE,
+//     explanation,
+//     email_address_source_UIorAPI_EN2,
+//     eSender_author_email_EN2,
+//     main_buyer_name_TM22,
+//     FINAL_SDK,
+//     COUNTRY_LABEL_STAT,
+//     type_TM22,
+//     main_publication_TM22                                     AS main_publication,
+//     status_TM22,
+//     status_TM22_Reel,
+//     'eForm'                                                   AS source,
+//     notice_check_in_date_TM22,
+//     publication_date_preferred_TM22                           AS ppd_raw,
+//     Date($(fDate(publication_date_TM22)))                     AS actual_pub_date,
+//     Date($(fDate(publication_date_preferred_TM22)))           AS ppd_requested_date,
+//     If(Len(Trim(publication_date_preferred_TM22)) > 0, 1, 0)  AS has_ppd,
+//     $(fTS(notice_check_in_date_TM22))                         AS checkin_num
+// FROM [$(vQVD_Notices)] (qvd)
+// WHERE status_TM22_Reel = 'Published'
+//   AND Year_publication_TM22 >= $(vYearMin)
+//   AND Year_publication_TM22 <= $(vYearMax);
+
+
+LOAD
+    business_notice_id_TM22                                   AS business_notice_id,
+    publication_number_TM22,
+    FINAL_SOURCE,
+    explanation,
+    email_address_source_UIorAPI_EN2,
+    eSender_author_email_EN2,
+    main_buyer_name_TM22,
+    FINAL_SDK,
+    COUNTRY_LABEL_STAT,
+    type_TM22,
+    main_publication                                          AS main_publication,
+    status_TM22,
+    status_TM22_Reel,
+    source 													  AS source,
+    notice_check_in_date_TM22,
+    publication_date_preferred_TM22                           AS ppd_raw,
+    Date($(fDate(publication_date_TM22)))                     AS actual_pub_date,
+    Date($(fDate(publication_date_preferred_TM22)))           AS ppd_requested_date,
+    If(Len(Trim(publication_date_preferred_TM22)) > 0, 1, 0)  AS has_ppd,
+    $(fTS(notice_check_in_date_TM22))                         AS checkin_num
+FROM [lib://AttachedFiles/Notices_retard_extrait.qvd]
+(qvd)
+WHERE status_TM22_Reel = 'Published'
+; 
+  
+
+// Réception : audit_log, à défaut check-in (cas réinjection / bug 28/01/2025) 
+Notices_1:
+NoConcatenate
+LOAD *,
+    Timestamp(Alt(rec_audit_num, checkin_num)) AS reception_ts,
+    If(NOT IsNull(rec_audit_num), 'AUDIT_LOG',
+       If(NOT IsNull(checkin_num), 'CHECK_IN_FALLBACK', 'MISSING')) AS reception_source;
+LOAD *,
+    ApplyMap('Map_Reception', business_notice_id, Null())  AS rec_audit_num,
+    ApplyMap('Map_ReceptionCount', business_notice_id, 0)  AS reception_event_count
+RESIDENT Notices_Src;
+
+DROP TABLE Notices_Src;
+DROP FIELDS rec_audit_num, checkin_num FROM Notices_1;

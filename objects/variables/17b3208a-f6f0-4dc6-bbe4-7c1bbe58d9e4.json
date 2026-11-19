@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "17b3208a-f6f0-4dc6-bbe4-7c1bbe58d9e4",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vPubMin",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "45293",
+  "qIsScriptCreated": true
+}

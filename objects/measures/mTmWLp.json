@@ -1,0 +1,30 @@
+{
+  "qInfo": {
+    "qId": "mTmWLp",
+    "qType": "measure"
+  },
+  "qMeasure": {
+    "qLabel": "PPD - Early",
+    "qDef": "Count({<scenario_code={\"B*\"}, ppd_check={'EARLY'}>} DISTINCT business_notice_id) ",
+    "qGrouping": "N",
+    "qExpressions": [],
+    "qActiveExpression": 0,
+    "qNumFormat": {
+      "qType": "U",
+      "qnDec": 10,
+      "qUseThou": 0
+    },
+    "numFormatFromTemplate": true,
+    "coloring": {
+      "baseColor": {
+        "color": "#a16090",
+        "index": 9
+      }
+    }
+  },
+  "qMetaDef": {
+    "title": "PPD - Early",
+    "description": "",
+    "tags": []
+  }
+}

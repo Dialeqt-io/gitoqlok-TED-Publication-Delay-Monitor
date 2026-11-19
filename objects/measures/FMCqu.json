@@ -1,0 +1,35 @@
+{
+  "qInfo": {
+    "qId": "FMCqu",
+    "qType": "measure"
+  },
+  "qMeasure": {
+    "qLabel": "Published Notices",
+    "qDef": "Count(distinct business_notice_id)",
+    "qGrouping": "N",
+    "qExpressions": [],
+    "qActiveExpression": 0,
+    "qLabelExpression": "='Published Notices'",
+    "qNumFormat": {
+      "qType": "F",
+      "qnDec": 2,
+      "qUseThou": 0,
+      "qFmt": "#,##0",
+      "qDec": ".",
+      "qThou": ","
+    },
+    "isCustomFormatted": false,
+    "numFormatFromTemplate": true,
+    "coloring": {
+      "baseColor": {
+        "color": "#0b5cad",
+        "index": -1
+      }
+    }
+  },
+  "qMetaDef": {
+    "title": "Published Notices",
+    "description": "",
+    "tags": []
+  }
+}

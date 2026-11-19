@@ -1,0 +1,29 @@
+{
+  "qInfo": {
+    "qId": "FyuYsQ",
+    "qType": "measure"
+  },
+  "qMeasure": {
+    "qLabel": "P90 Delay",
+    "qDef": "Fractile({<scenario_code={'A'}>} publication_delay_calendar_days, 0.9)",
+    "qGrouping": "N",
+    "qExpressions": [],
+    "qActiveExpression": 0,
+    "qNumFormat": {
+      "qType": "F",
+      "qnDec": 2,
+      "qUseThou": 0,
+      "qFmt": "#,##0.0 d",
+      "qDec": ".",
+      "qThou": ","
+    },
+    "isCustomFormatted": false,
+    "numFormatFromTemplate": false,
+    "coloring": {}
+  },
+  "qMetaDef": {
+    "title": "P90 Delay",
+    "description": "",
+    "tags": []
+  }
+}

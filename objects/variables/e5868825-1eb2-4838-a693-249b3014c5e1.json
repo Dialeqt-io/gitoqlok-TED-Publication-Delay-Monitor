@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "e5868825-1eb2-4838-a693-249b3014c5e1",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vReloadTime",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "11/11/2026 17:31:34",
+  "qIsScriptCreated": true
+}

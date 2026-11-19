@@ -1,0 +1,27 @@
+{
+  "qInfo": {
+    "qId": "RzpAMe",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "=if(publication_delay_calendar_days >=10, dual('10+', 10), publication_delay_calendar_days)"
+    ],
+    "qFieldLabels": [
+      "Publication Delay"
+    ],
+    "qLabelExpression": "='Publication Delay'",
+    "qAlias": "Publication Delay",
+    "title": "Publication Delay",
+    "coloring": {
+      "changeHash": "0.23117852138763317",
+      "hasValueColors": false
+    }
+  },
+  "qMetaDef": {
+    "title": "Publication Delay",
+    "description": "",
+    "tags": []
+  }
+}

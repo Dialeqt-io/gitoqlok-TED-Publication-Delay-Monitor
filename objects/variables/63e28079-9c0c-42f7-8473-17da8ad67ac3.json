@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "63e28079-9c0c-42f7-8473-17da8ad67ac3",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "fTS",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "Alt(If(IsNum($1), $1), Timestamp#($1, 'YYYY-MM-DD hh:mm:ss.ffffff'), Timestamp#($1, 'YYYY-MM-DD hh:mm:ss.fff'), Timestamp#($1, 'YYYY-MM-DD hh:mm:ss'))",
+  "qIsScriptCreated": true
+}

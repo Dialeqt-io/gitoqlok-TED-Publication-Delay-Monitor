@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "95192a5d-1948-4326-80e2-8d5c3a3d8495",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vPubMax",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "46330",
+  "qIsScriptCreated": true
+}

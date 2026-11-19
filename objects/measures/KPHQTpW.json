@@ -1,0 +1,34 @@
+{
+  "qInfo": {
+    "qId": "KPHQTpW",
+    "qType": "measure"
+  },
+  "qMeasure": {
+    "qLabel": "Overdue",
+    "qDef": "{<final_status={'OVERDUE'}>} [Published Notices]",
+    "qGrouping": "N",
+    "qExpressions": [],
+    "qActiveExpression": 0,
+    "qNumFormat": {
+      "qType": "F",
+      "qnDec": 2,
+      "qUseThou": 0,
+      "qFmt": "#,##0",
+      "qDec": ".",
+      "qThou": ","
+    },
+    "isCustomFormatted": false,
+    "numFormatFromTemplate": true,
+    "coloring": {
+      "baseColor": {
+        "color": "#C62828",
+        "index": -1
+      }
+    }
+  },
+  "qMetaDef": {
+    "title": "Overdue",
+    "description": "",
+    "tags": []
+  }
+}

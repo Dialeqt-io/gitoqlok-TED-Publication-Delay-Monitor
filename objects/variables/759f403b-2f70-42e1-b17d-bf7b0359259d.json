@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "759f403b-2f70-42e1-b17d-bf7b0359259d",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vYearMax",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "2026",
+  "qIsScriptCreated": true
+}

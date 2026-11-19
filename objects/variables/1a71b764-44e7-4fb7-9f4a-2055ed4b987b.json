@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "1a71b764-44e7-4fb7-9f4a-2055ed4b987b",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vTZ_Place",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "Brussels",
+  "qIsScriptCreated": true
+}

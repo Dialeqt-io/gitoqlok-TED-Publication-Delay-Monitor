@@ -1,0 +1,27 @@
+{
+  "qInfo": {
+    "qId": "RwyvWR",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "scenario_code"
+    ],
+    "qFieldLabels": [
+      "scenario_code"
+    ],
+    "qLabelExpression": "='Scenario'",
+    "qAlias": "scenario_code",
+    "title": "scenario_code",
+    "coloring": {
+      "changeHash": "0.33948701739363907",
+      "hasValueColors": false
+    }
+  },
+  "qMetaDef": {
+    "title": "scenario_code",
+    "description": "",
+    "tags": []
+  }
+}

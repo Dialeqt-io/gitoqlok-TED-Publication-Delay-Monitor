@@ -1,0 +1,27 @@
+{
+  "qInfo": {
+    "qId": "ZqskWkF",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "=if(has_ppd=1, 'YES', 'NO')"
+    ],
+    "qFieldLabels": [
+      "Preferred Date (Y/N)"
+    ],
+    "qLabelExpression": "='Preferred Date (Y/N)'",
+    "qAlias": "Preferred Date (Y/N)",
+    "title": "Preferred Date (Y/N)",
+    "coloring": {
+      "changeHash": "0.3556710322617188",
+      "hasValueColors": false
+    }
+  },
+  "qMetaDef": {
+    "title": "Preferred Date (Y/N)",
+    "description": "",
+    "tags": []
+  }
+}

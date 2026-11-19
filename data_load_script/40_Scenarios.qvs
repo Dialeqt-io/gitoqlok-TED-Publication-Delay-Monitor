@@ -1,0 +1,78 @@
+///$tab 40_Scenarios
+// ---------------------------------------------------------------------
+// 4.1 Dates de référence + détection automatique des redémarrages d'export
+// ---------------------------------------------------------------------
+Notices_2:
+NoConcatenate
+LOAD *,
+    Date(If(late_inclusion_flag = 1, actual_pub_date, earliest_pub_date_theoretical)) AS earliest_pub_date;
+LOAD *,
+    // Avis reçu APRÈS le 1er démarrage mais publié dans ce même OJS => il a été pris par un redémarrage
+    If(actual_pub_date < earliest_pub_date_theoretical
+       AND reception_ts > actual_export_first_start
+       AND reception_ts <= RangeMax(actual_export_last_start, If($(vUseExportEndForRestart) = 1, actual_exported_on)),
+       1, 0)                                                                       AS late_inclusion_flag;
+LOAD *,
+    Date(ApplyMap('Map_EarliestPub', business_notice_id, Null()))                  AS earliest_pub_date_theoretical,
+    Timestamp(ApplyMap('Map_NextExport', business_notice_id, Null()))              AS next_export_start,
+    Timestamp(ApplyMap('Map_Plan_FirstStart', Num(actual_pub_date), Null()))       AS actual_export_first_start,
+    Timestamp(ApplyMap('Map_Plan_LastStart',  Num(actual_pub_date), Null()))       AS actual_export_last_start,
+    Timestamp(ApplyMap('Map_Plan_ExportedOn', Num(actual_pub_date), Null()))       AS actual_exported_on,
+    ApplyMap('Map_Plan_StartCount', Num(actual_pub_date), 0)                       AS actual_export_start_count,
+    ApplyMap('Map_IsPubDate', Num(actual_pub_date), 0)                             AS actual_pub_date_in_plan,
+    If(has_ppd = 1, Date(ApplyMap('Map_NextPubDate', Num(ppd_requested_date), Null()))) AS ppd_next_pub_date,
+    If(has_ppd = 1, ApplyMap('Map_IsPubDate', Num(ppd_requested_date), 0))         AS ppd_is_pub_date
+RESIDENT Notices_1;
+
+DROP TABLE Notices_1;
+
+// ---------------------------------------------------------------------
+// 4.2 Scénario, MESURE (toujours calculée) et CONTRÔLE (selon scénario)
+//   A  = ASAP (pas de PPD)                       -> contrôle 5 jours
+//   B1 = PPD valide (jour de publication atteignable) -> publié à la PPD ?
+//   B2 = PPD hors calendrier -> recalée sur la prochaine date de publication -> contrôle 5j
+//   B3 = PPD trop tôt (passée ou après le dernier export possible) -> référence = 1re date possible
+//   X  = données insuffisantes -> TO CHECK (jamais classé IN TIME par défaut)
+// ---------------------------------------------------------------------
+Notices_3:
+NoConcatenate
+LOAD *,
+    If(scenario_code = 'A' OR scenario_code = 'B3', legal_check,
+       If(WildMatch(scenario_code, 'B1', 'B2'),
+          Pick(Match(ppd_check, 'ON REQUESTED DATE', 'AFTER REFERENCE DATE', 'EARLY'), 'IN TIME', 'OVERDUE', 'EARLY'),
+          'UNDETERMINED'))                                                         AS control_result_raw;
+LOAD *,
+    If(scenario_code <> 'X',
+       If(publication_delay_calendar_days <= $(vSLA_Days), 'IN TIME', 'OVERDUE'))  AS legal_check,
+    If(WildMatch(scenario_code, 'B*'),
+       If(gap_vs_reference_days = 0, 'ON REQUESTED DATE',
+          If(gap_vs_reference_days > 0, 'AFTER REFERENCE DATE', 'EARLY')))                         AS ppd_check,
+    If(scenario_code <> 'X' AND actual_pub_date < earliest_pub_date, 1, 0)         AS anomaly_published_before_earliest;
+LOAD *,
+    Round(actual_pub_date - reception_ts, 0.001)                                   AS publication_delay_days,
+    actual_pub_date - Floor(reception_ts)                                          AS publication_delay_calendar_days,
+    Date(Floor(reception_ts) + $(vSLA_Days))                                       AS legal_deadline_date,
+    If(scenario_code <> 'X', actual_pub_date - reference_pub_date)                 AS gap_vs_reference_days;
+LOAD *,
+    Date(If(scenario_code = 'A', earliest_pub_date,
+         If(WildMatch(scenario_code, 'B*'), RangeMax(ppd_next_pub_date, earliest_pub_date))))  AS reference_pub_date,
+    Pick(Match(scenario_code, 'A', 'B1', 'B2', 'B3', 'X'),
+         'A - ASAP (no preferred date)',
+         'B1 - Preferred date valid',
+         'B2 - Preferred date shifted to next publication date',
+         'B3 - Preferred date not achievable, earliest possible date applied',
+         'X - Data issue')                                                         AS scenario_label;
+LOAD *,
+    If(IsNull(reception_ts) OR IsNull(actual_pub_date) OR IsNull(earliest_pub_date), 'X',
+       If(has_ppd = 0, 'A',
+          If(IsNull(ppd_requested_date) OR IsNull(ppd_next_pub_date), 'X',
+             If(ppd_next_pub_date < earliest_pub_date, 'B3',
+                If(ppd_is_pub_date = 0, 'B2', 'B1')))))                            AS scenario_code,
+    If(IsNull(reception_ts), 'Reception date missing',
+       If(IsNull(actual_pub_date), 'Publication date missing',
+          If(IsNull(earliest_pub_date), 'No export found after reception',
+             If(has_ppd = 1 AND IsNull(ppd_requested_date), 'Preferred date unreadable: ' & ppd_raw,
+                If(has_ppd = 1 AND IsNull(ppd_next_pub_date), 'Preferred date beyond production calendar')))))  AS data_issue_reason
+RESIDENT Notices_2;
+
+DROP TABLE Notices_2;

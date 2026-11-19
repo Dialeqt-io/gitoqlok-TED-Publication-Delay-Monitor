@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "a8aa8e1b-061d-44a7-b877-4c5d69f68e5d",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "fDate",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "Alt(If(IsNum($1), Floor($1)), Floor(Date#(Left($1, 10), 'YYYY-MM-DD')), Floor(Date#(Left($1, 10), 'DD/MM/YYYY')))",
+  "qIsScriptCreated": true
+}

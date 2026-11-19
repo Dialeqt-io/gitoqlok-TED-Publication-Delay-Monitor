@@ -1,0 +1,722 @@
+[
+  {
+    "qName": "COUNTRY_LABEL_STAT",
+    "qTags": [
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "Corrections",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "FINAL_SDK",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "FINAL_SOURCE",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "LoadTime",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "reload_eNotices2"
+    ]
+  },
+  {
+    "qName": "Publication Month",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "Publication Quarter",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "Publication Week",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "Publication Weekday",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "Publication Year",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "Publication Year-Month",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "Publication Year-Week",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "actual_export_first_start",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "actual_export_last_start",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "actual_export_start_count",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "actual_exported_on",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "actual_pub_date",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date",
+      "$key"
+    ],
+    "qSrcTables": [
+      "Notice",
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "actual_pub_date_in_plan",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "anomaly_published_before_earliest",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "business_notice_id",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "control_result_raw",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "data_issue_reason",
+    "qTags": [],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "eSender_author_email_EN2",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "earliest_pub_date",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "earliest_pub_date_theoretical",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "email_address_source_UIorAPI_EN2",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "exc_unmatched_explanations",
+    "qTags": [],
+    "qSrcTables": [
+      "Exceptions_Unmatched"
+    ]
+  },
+  {
+    "qName": "exc_unmatched_id",
+    "qTags": [],
+    "qSrcTables": [
+      "Exceptions_Unmatched"
+    ]
+  },
+  {
+    "qName": "exception_redundant",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "explanation",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "explanations",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "final_status",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "gap_vs_reference_days",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "has_ppd",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "is_compliant",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "is_publication_day",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "is_weekend_reception",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "late_inclusion_flag",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "legal_check",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "legal_deadline_date",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "main_buyer_name_TM22",
+    "qTags": [
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "main_publication",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "next_export_start",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "notice_check_in_date_TM22",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "plan_export_first_start",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "plan_export_last_start",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "plan_export_start_count",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "plan_exported_on",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "plan_ojs_release_id",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "plan_release_count",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Publication_Calendar"
+    ]
+  },
+  {
+    "qName": "ppd_check",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "ppd_is_pub_date",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "ppd_next_pub_date",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "ppd_raw",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "ppd_requested_date",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "publication_delay_calendar_days",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "publication_delay_days",
+    "qTags": [
+      "$numeric"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "publication_number_TM22",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "reception_event_count",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "reception_hour",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "reception_source",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "reception_ts",
+    "qTags": [
+      "$numeric",
+      "$timestamp"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "reception_weekday",
+    "qTags": [
+      "$numeric",
+      "$integer"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "reference_pub_date",
+    "qTags": [
+      "$numeric",
+      "$integer",
+      "$timestamp",
+      "$date"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "rule_explanation",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "scenario_code",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "scenario_label",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "source",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "status_TM22",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "status_TM22_Reel",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  },
+  {
+    "qName": "type_TM22",
+    "qTags": [
+      "$ascii",
+      "$text"
+    ],
+    "qSrcTables": [
+      "Notice"
+    ]
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "qInfo": {
+    "qId": "mmwQgw",
+    "qType": "measure"
+  },
+  "qMeasure": {
+    "qLabel": "To Check",
+    "qDef": "{<final_status={'TO CHECK'}>} [Published Notices]",
+    "qGrouping": "N",
+    "qExpressions": [],
+    "qActiveExpression": 0,
+    "qLabelExpression": "='To Check'",
+    "qNumFormat": {
+      "qType": "F",
+      "qnDec": 2,
+      "qUseThou": 0,
+      "qFmt": "#,##0",
+      "qDec": ".",
+      "qThou": ","
+    },
+    "isCustomFormatted": false,
+    "numFormatFromTemplate": true,
+    "coloring": {
+      "baseColor": {
+        "color": "#8A9099",
+        "index": -1
+      }
+    }
+  },
+  "qMetaDef": {
+    "title": "To Check",
+    "description": "",
+    "tags": []
+  }
+}

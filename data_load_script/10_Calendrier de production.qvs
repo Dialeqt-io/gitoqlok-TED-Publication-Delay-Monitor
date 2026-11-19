@@ -1,0 +1,116 @@
+///$tab 10_Calendrier de production
+// ---------------------------------------------------------------------
+// 1.1 Releases OJS et démarrages d'export
+// ---------------------------------------------------------------------
+
+/*
+LIB CONNECT TO 'OP_AWS_TEDMON22';
+
+OJS_Release:
+LOAD
+    ojs_release_id,
+    Date($(fDate(publication_date)))   AS ojs_publication_date,
+    Timestamp($(fTS(exported_on)))     AS ojs_exported_on;        // fin d'export (fuseau à confirmer)
+SQL SELECT ojs_release_id, exported_on, publication_date
+FROM tedmon22_database.ojs_release;
+
+Export_Log:
+LOAD
+    ojs_release_id,
+    Timestamp(ConvertToLocalTime($(fTS(created_on)), '$(vTZ_Place)')) AS export_start_local;
+SQL SELECT ojs_release_id, created_on
+FROM tedmon22_database.export_logs;
+
+DisConnect;
+*/
+OJS_Release:
+LOAD
+    ojs_release_id,
+    ojs_publication_date,
+    ojs_exported_on
+ //   Timestamp(ConvertToLocalTime(ojs_exported_on, '$(vTZ_Place)')) AS ojs_exported_on
+FROM [lib://AttachedFiles/OJS_Release.qvd]
+(qvd);
+
+Export_Log:
+LOAD
+    ojs_release_id,
+    export_start_local
+FROM [lib://AttachedFiles/Export_Log.qvd]
+(qvd);
+
+
+DisConnect;
+
+// Tous les démarrages sont conservés : premier, dernier, nombre 1 ou plus (=> détection des redémarrages)
+LEFT JOIN (OJS_Release)
+LOAD
+    ojs_release_id,
+    Timestamp(Min(export_start_local)) AS export_first_start,
+    Timestamp(Max(export_start_local)) AS export_last_start,
+    Count(export_start_local)          AS export_start_count
+RESIDENT Export_Log
+GROUP BY ojs_release_id;
+
+DROP TABLE Export_Log;
+
+// --------------------------------------------------------------------------------------
+// 1.2 Plan de production : 1 ligne par date de publication pour éviter doublons plus loin
+// --------------------------------------------------------------------------------------
+Production_Calendar:
+LOAD
+    ojs_publication_date                                  AS plan_pub_date,
+    FirstSortedValue(ojs_release_id, export_first_start)  AS plan_ojs_release_id,
+    Count(ojs_release_id)                                 AS plan_release_count,
+    Timestamp(Min(export_first_start))                    AS plan_export_first_start,
+    Timestamp(Max(export_last_start))                     AS plan_export_last_start,
+    Sum(export_start_count)                               AS plan_export_start_count,
+    Timestamp(Max(ojs_exported_on))                       AS plan_exported_on
+RESIDENT OJS_Release
+WHERE NOT IsNull(ojs_publication_date)
+GROUP BY ojs_publication_date;
+
+DROP TABLE OJS_Release;
+
+Map_IsPubDate:       MAPPING LOAD Num(plan_pub_date), 1                            RESIDENT Production_Calendar;
+Map_Plan_FirstStart: MAPPING LOAD Num(plan_pub_date), Num(plan_export_first_start) RESIDENT Production_Calendar;
+Map_Plan_LastStart:  MAPPING LOAD Num(plan_pub_date), Num(plan_export_last_start)  RESIDENT Production_Calendar;
+Map_Plan_ExportedOn: MAPPING LOAD Num(plan_pub_date), Num(plan_exported_on)        RESIDENT Production_Calendar;
+Map_Plan_StartCount: MAPPING LOAD Num(plan_pub_date), plan_export_start_count      RESIDENT Production_Calendar;
+
+// ---------------------------------------------------------------------
+// 1.3 "Prochaine date de publication" pour chaque jour du calendrier
+//     sert à recaler une Preferred Publication Date (PPD) qui n'est pas un jour de publication
+// ---------------------------------------------------------------------
+Tmp_Bounds:
+LOAD Max(plan_pub_date) AS b_max RESIDENT Production_Calendar;
+LET vCalStart = Num(MakeDate($(vYearMin) - 1, 1, 1));
+LET vCalEnd   = Num(Peek('b_max', 0, 'Tmp_Bounds'));
+DROP TABLE Tmp_Bounds;
+
+Tmp_Cal:
+LOAD Date($(vCalStart) + IterNo() - 1) AS cal_date
+AUTOGENERATE 1
+WHILE $(vCalStart) + IterNo() - 1 <= $(vCalEnd);
+
+LEFT JOIN (Tmp_Cal)
+LOAD plan_pub_date AS cal_date, plan_pub_date AS cal_pub_date
+RESIDENT Production_Calendar;
+
+
+Tmp_CalNext:
+NoConcatenate
+LOAD
+    cal_date,
+    Date(Alt(cal_pub_date, Peek('cal_next_pub_date'))) AS cal_next_pub_date   // remplissage vers l'arrière
+RESIDENT Tmp_Cal
+ORDER BY cal_date DESC;
+
+DROP TABLE Tmp_Cal;
+
+Map_NextPubDate:
+MAPPING LOAD Num(cal_date), Num(cal_next_pub_date)
+RESIDENT Tmp_CalNext
+WHERE NOT IsNull(cal_next_pub_date);
+
+DROP TABLE Tmp_CalNext;

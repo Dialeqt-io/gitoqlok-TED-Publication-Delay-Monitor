@@ -1,0 +1,15 @@
+{
+  "qInfo": {
+    "qId": "c0f756ae-634e-4621-b792-1e2058e52aa3",
+    "qType": "variable"
+  },
+  "qMetaDef": {},
+  "qName": "vIds",
+  "qNumberPresentation": {
+    "qType": "U",
+    "qnDec": 10,
+    "qUseThou": 0
+  },
+  "qDefinition": "63693",
+  "qIsScriptCreated": true
+}

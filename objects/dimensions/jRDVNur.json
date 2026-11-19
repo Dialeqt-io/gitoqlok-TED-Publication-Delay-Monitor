@@ -1,0 +1,27 @@
+{
+  "qInfo": {
+    "qId": "jRDVNur",
+    "qType": "dimension"
+  },
+  "qDim": {
+    "qGrouping": "N",
+    "qFieldDefs": [
+      "type_TM22"
+    ],
+    "qFieldLabels": [
+      "type_TM22"
+    ],
+    "qLabelExpression": "='Notice Type'",
+    "qAlias": "type_TM22",
+    "title": "type_TM22",
+    "coloring": {
+      "changeHash": "0.2662364596653436",
+      "hasValueColors": false
+    }
+  },
+  "qMetaDef": {
+    "title": "type_TM22",
+    "description": "",
+    "tags": []
+  }
+}
